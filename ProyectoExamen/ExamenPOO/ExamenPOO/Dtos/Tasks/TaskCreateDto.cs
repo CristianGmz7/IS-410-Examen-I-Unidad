@@ -15,6 +15,7 @@ public class TaskCreateDto
 
     [Display(Name = "Prioridad")]
     [Required(ErrorMessage = "La {0} de la tarea es requerido")]
+    [RegularExpression("^(ALTA|MEDIA|BAJA)$", ErrorMessage = "El valor de {0} solo puede ser 'ALTA', 'MEDIA', 'BAJA'")]
     public string Priority { get; set; }
 
     [Display(Name = "Tiempo estimado")]

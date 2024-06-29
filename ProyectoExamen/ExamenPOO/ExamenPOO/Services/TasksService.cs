@@ -140,7 +140,7 @@ public class TasksService : ITasksService
 
     //Nuevos metodos
     //Cambiar el estado de una tarea
-    public async Task<bool> ChangeStatusAsync(Guid id)
+    public async Task<TaskDto> ChangeStatusAsync(Guid id)
     {
         var tasksDto = await ReadTasksFromFilesAsync();
 
@@ -148,7 +148,7 @@ public class TasksService : ITasksService
 
         if(taskToChange is null)
         {
-            return false;
+            return null;
         }
 
         for (int i = 0; i < tasksDto.Count; i++)
@@ -168,7 +168,7 @@ public class TasksService : ITasksService
 
         await WriteTasksToFileAsync(tasksDto);
 
-        return true;
+        return taskToChange;
     }
 
     //Listar tareas por prioridad
@@ -206,4 +206,40 @@ public class TasksService : ITasksService
         return suma;
     }
 
+    //Calcular tiempo total por prioridad
+    public async Task<int> CalculateTotalTimePriority(string priority)
+    {
+        var tasksDto = await ReadTasksFromFilesAsync();
+
+        var tasksPriority = new List<TaskDto>();
+        int suma = 0;
+
+        for(int i = 0; i < tasksDto.Count; i++)
+        {
+            if (tasksDto[i].Status == true && tasksDto[i].Priority == priority)
+            {
+                suma += tasksDto[i].RequiredTime;
+            }
+        }
+
+        return suma;
+    }
+
+    //Listar tareas por estado
+    public async Task<List<TaskDto>> GetTaskListByStatus(bool status)
+    {
+        var tasksDto = await ReadTasksFromFilesAsync();
+
+        var tasksStatus = new List<TaskDto>();
+
+        for(int i = 0; i < tasksDto.Count; i++)
+        {
+            if (tasksDto[i].Status == status)
+            {
+                tasksStatus.Add(tasksDto[i]);
+            }
+        }
+
+        return tasksStatus;
+    }
 }

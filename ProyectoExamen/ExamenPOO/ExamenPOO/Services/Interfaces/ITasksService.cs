@@ -9,9 +9,11 @@ public interface ITasksService
     Task<bool> CreateAsync(TaskCreateDto dto);
     Task<bool> EditAsync(TaskEditDto dto, Guid id);
     Task<bool> DeleteAsync(Guid id);
-    Task<bool> ChangeStatusAsync(Guid id);
+    Task<TaskDto> ChangeStatusAsync(Guid id);
     Task<List<TaskDto>> GetTaskListByPriority(string priority);
     Task<int> CalculateTotalTime();
+    Task<int> CalculateTotalTimePriority(string priority);
+    Task<List<TaskDto>> GetTaskListByStatus(bool status);
 
 
 }

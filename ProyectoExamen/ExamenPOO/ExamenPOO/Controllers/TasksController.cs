@@ -73,17 +73,17 @@ public class TasksController : ControllerBase
     //ANTERIORES SON LOS 5 ENDPOINTS COMUNES: GET ALL, GET BY ID, CREATE, UPDATE, DELETE
     //1. Cambiar estado de tarea
     //Creo que el llamado esta malo, alternar entre Put y Create
-    [HttpPut("ChangeStatus{id}")]
+    [HttpGet("ChangeStatus{id}")]
     public async Task<ActionResult> ChangeStatus(Guid id)
     {
         var response = await _tasksService.ChangeStatusAsync(id);
 
-        if (!response)
+        if (response is null)
         {
             return NotFound();
         }
 
-        return Ok();
+        return Ok(response);
 
     }
 
@@ -96,12 +96,30 @@ public class TasksController : ControllerBase
         return Ok(tasks);
     }
 
+    //3. Calcular tiempo total para completar tareas pendientes
     [HttpGet("GetTotalTime")]
     public async Task<ActionResult> GetTotalTime()
     {
         var total = await _tasksService.CalculateTotalTime();
 
         return Ok(total);
+    }
+
+    //4. Calcular tiempo total para completar tareas pendientes por prioridad
+    [HttpGet("GetTotalTimeByPriority{text}")]
+    public async Task<ActionResult> GetTotalTimeByPriority(string text)
+    {
+        var total = await _tasksService.CalculateTotalTimePriority(text);
+
+        return Ok(total);
+    }
+
+    //5. Listar tarea por estado
+    [HttpGet("GetStatus{boolean}")]
+    public async Task<ActionResult> GetByStatus(bool boolean)
+    {
+        var tasks = await _tasksService.GetTaskListByStatus(boolean);
+        return Ok(tasks);
     }
 
 }

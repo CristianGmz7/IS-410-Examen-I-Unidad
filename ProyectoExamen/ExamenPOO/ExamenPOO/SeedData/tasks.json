@@ -19,5 +19,19 @@
     "Status": true,
     "Priority": "BAJA",
     "RequiredTime": 3
+  },
+  {
+    "Id": "0b48d404-b728-492c-9660-ed81bf19e54d",
+    "Description": "Practicar Guitarra",
+    "Status": true,
+    "Priority": "BAJA",
+    "RequiredTime": 2
+  },
+  {
+    "Id": "92d0f0e7-3d74-4154-a58c-25f8608c150d",
+    "Description": "Bañar al perro",
+    "Status": true,
+    "Priority": "MEDIA",
+    "RequiredTime": 1
   }
 ]

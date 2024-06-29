@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using ExamenPOO.Services;
+using ExamenPOO.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
 
 namespace ExamenPOO;
 
@@ -18,7 +20,7 @@ public class Startup
         services.AddSwaggerGen();
 
         //Añadir servicios personalizados
-
+        services.AddTransient<ITasksService, TasksService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

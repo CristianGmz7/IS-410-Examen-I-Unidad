@@ -1,1 +1,1 @@
-esta carpeta van las colecciones del bruno
+RECORDAR PONER ENTORNO DE DESARROLLO EN BRUNO

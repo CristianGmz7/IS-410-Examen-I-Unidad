@@ -1,0 +1,23 @@
+[
+  {
+    "Id": "73d2b35e-718b-4413-8e88-95dddb9baca6",
+    "Description": "Terminar examen POO",
+    "Status": true,
+    "Priority": "ALTA",
+    "RequiredTime": 1
+  },
+  {
+    "Id": "6330fa3b-18d7-4007-bdbf-a5651df1ec88",
+    "Description": "Lavar Ropa",
+    "Status": true,
+    "Priority": "MEDIA",
+    "RequiredTime": 1
+  },
+  {
+    "Id": "05a5b928-8b51-4a0c-9f79-5382202b3eab",
+    "Description": "Estudiar Electronica",
+    "Status": true,
+    "Priority": "BAJA",
+    "RequiredTime": 3
+  }
+]

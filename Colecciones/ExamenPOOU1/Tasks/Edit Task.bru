@@ -1,0 +1,20 @@
+meta {
+  name: Edit Task
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{PATH}}/tasks/6330fa3b-18d7-4007-bdbf-a5651df1ec88
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "description": "Lavar Ropa",
+    "status": true,
+    "priority": "MEDIA",
+    "requiredTime": 1
+  }
+}

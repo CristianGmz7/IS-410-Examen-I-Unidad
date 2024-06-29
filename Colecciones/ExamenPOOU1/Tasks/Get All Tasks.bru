@@ -1,0 +1,11 @@
+meta {
+  name: Get All Tasks
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{PATH}}/tasks
+  body: json
+  auth: none
+}

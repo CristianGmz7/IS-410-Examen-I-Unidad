@@ -1,0 +1,21 @@
+meta {
+  name: Create Task
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{PATH}}/tasks
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "description": "Estudiar Electronica",
+    "status": true,
+    "priority": "BAJA",
+    "requiredTime": 3
+  }
+  
+}
